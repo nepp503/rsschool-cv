@@ -1,6 +1,6 @@
 1. **Vitali Siniak**
 2. **Tel.:** *+421905957362*, **e-mail**: *nepp503@gmail.com*
-3. Hi, my name is Vitali. I'm 26. Right now I'm working in Slovakia as Junior PLM Consultant. My main responsibility is to provide support and change our PLM software according to customer needs. These changes I make in Java code in XML files. My main goal right now is to gain as much experience as I can, to learn and become a high skill developer. I'm a very good learner, I'm very responsible and I adapt fast. To prove that right now I have a different project in my company. We develop web-app and I work on this project as frontend developer, so I had to learn fast and adapt to new project and its needs. Also I'm not afraid of challanges so I was able to move to Slovakia from Belarus according to family situation and its a new country for me, but I was able to adapt here and find a job. Its very important for me that I have a very smart people around me so I could learn from them. And I wish that my abilities as hard-worker and good-learner will help me to become a great developer.  
+3. Hi, my name is Vitali. I'm 26. Right now I'm working in Slovakia as Junior PLM Consultant at **Tecnhia Slovakia s.r.o**. My main responsibility is to provide support and change our PLM software according to customer needs. These changes I make in Java code in XML files. My main goal right now is to gain as much experience as I can, to learn and become a high skill developer. I'm a very good learner, I'm very responsible and I adapt fast. To prove that right now I have a different project in my company. We develop web-app and I work on this project as frontend developer, so I had to learn fast and adapt to new project and its needs. Also I'm not afraid of challanges so I was able to move to Slovakia from Belarus according to family situation and its a new country for me, but I was able to adapt here and find a job. Its very important for me that I have a very smart people around me so I could learn from them. And I wish that my abilities as hard-worker and good-learner will help me to become a great developer.  
 4. Java Core, Java EE, JSP, Tomcat Aplication Server, OOP, Git, HTML, CSS, JS, jQuery, Kendo UI, MySQL, BitBucket, English as a second language.  
 5. Here are some latest examples of my code on project [GOMAN] (https://goman.sk):
 ```
@@ -115,3 +115,10 @@
 
       });
  ```
+6. Student Intern at Epam Systems - from 10.2018 until 05.2019 at training 'Java Web Development'
+   Junior PLM Consultant at Technia Slovakia s.r.o - from 01.02.2020 until now
+   Examples of projects: 
+   1. [Final Task of Epam Training] (https://github.com/nepp503/FinalTask)
+   2. [GOMAN](https://goman.sk) (unfortunatelly project is private on BitBucket)
+7. Java Web Development training at Epam Systems 
+8. I studied English at PostGraduating Academy in Minsk during my study at BNTU and graduated successfully as interpreter (English) in 2016.
