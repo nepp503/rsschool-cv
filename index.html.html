@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML, CSS, GIT</title>
+  </head>
+  <body>
+	<div class="center-block">
+		<div class="top-block">
+			<div class="top-image">
+				<!--<img src="av.jpg" width="200" height="176.8">-->
+			</div>
+			<div class="top-name">
+				<p>VITALI&nbsp;</p><p>SINIAK</p>
+			</div>
+		</div>
+		<div>
+			<p class="cv-header">CONTACTS</p>
+			<p>Tel.: +421905957362, e-mail: nepp503@gmail.com</p>
+		</div>
+		<div>
+			<p class="cv-header">PROFILE</p>
+			<p>Hi, my name is Vitali. I'm 26. Right now I'm working in Slovakia as Junior PLM Consultant at Tecnhia Slovakia s.r.o.</p> 
+			<p>My main responsibility is to provide support and change our PLM software according to customer needs. 
+			These changes I make in Java code in XML files. My main goal right now is to gain as much experience as I can, to learn and become 
+			a high skill developer. I'm a very good learner, I'm very responsible and I adapt fast. To prove that right now I have a different 
+			project in my company. We develop web-app and I work on this project as frontend developer, so I had to learn fast and adapt to new
+			project and its needs. Also I'm not afraid of challanges so I was able to move to Slovakia from Belarus according to family 
+			situation and its a new country for me, but I was able to adapt here and find a job. Its very important for me that I have a very 
+			smart people around me so I could learn from them. And I wish that my abilities as hard-worker and good-learner will help me to 
+			become a great developer.</p>
+		</div>
+		<div>
+			<p class="cv-header">SKILLS</p>
+			<ul class="cv-list">
+				<li>Java Core</li>
+				<li>Java EE</li>
+				<li>JSP</li>
+				<li>Tomcat Aplication Server</li>
+				<li>OOP</li>
+				<li>Git</li>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>JS</li>
+				<li>jQuery</li>
+				<li>Kendo UI</li>
+				<li>MySQL</li>
+				<li>BitBucket</li>
+				<li>English as a second language</li>
+			</ul>
+		</div>
+		<div>
+			<p class="cv-header">CODE EXAMPLES</p>
+			<p class="cv-sub-header">Here are some latest examples of my code on project <a href="https://goman.sk">GOMAN</a>:</p>
+	<pre>	var global_WindowID = {MAIN_WINDOW_ID};
+	var global_WindowObjectID = {MAIN_OBJECT_ID};
+	var global_WindowItemID = {MAIN_ITEM_ID};
+	var global_WindowParameters = [];
+	var currentPage = {};
+
+	var global_ReportObjects = [];
+
+	<!— BEGIN: parameter —>
+	global_WindowParameters["{PARAMETER_NAME}"] = "{PARAMETER_VALUE}";
+	<!— END: parameter —>
+
+	<!— BEGIN: standardwnd —>
+	$(document).ready(function () {
+
+	var splitter = $("#appMainSpliter-{MAIN_WINDOW_ID}").kendoSplitter({
+	orientation: "vertical",
+	panes: [
+	{ collapsible: true,size: "100%", xmin:"250px", size: "{MAIN_HEIGTH}px", xsize: "500px",collapsed: false ,scrollable: true },
+	{ collapsible: true, xsize: "250px",collapsed: {COLLAPS_RELSPLIT} }
+	]
+	}).data("kendoSplitter");
+
+	var tsobjectsMainView = $("#appMainViewsTabs-{MAIN_WINDOW_ID}").kendoTabStrip({
+	animation: { open: { duration: 0} },
+	activate: function(e) {
+	var previousPage;
+	globalHistory.length > 0 ? previousPage = globalHistory[globalHistory.length-historyIndex] : previousPage = undefined;
+	currentPage = {
+	windowId: {MAIN_WINDOW_ID},
+	itemId: {MAIN_ITEM_ID},
+	mainView: e.item.offsetParent.id,
+	mainTab: e.item.getAttribute('aria-controls'),
+	relView: $("#appRelationViewsTabs-{MAIN_WINDOW_ID}").length == 0 ? undefined : $("#appRelationViewsTabs-{MAIN_WINDOW_ID}").get(0).id,
+	relTab: $("#appRelationViewsTabs-{MAIN_WINDOW_ID}").find(".k-content.k-state-active").length == 0 ?
+	($("#appRelationViewsTabs-{MAIN_WINDOW_ID}").find(".k-content").get(0) == undefined ? undefined : 
+	$("#appRelationViewsTabs-{MAIN_WINDOW_ID}").find(".k-content").get(0).id) :
+	$("#appRelationViewsTabs-{MAIN_WINDOW_ID}").find(".k-content.k-state-active").get(0).id
+	};
+	if(!buttonWasClickedForMainTab){
+	if(!checkTypeOfPreviousPage(currentPage, previousPage)){
+	addToHistory(currentPage);
+	}
+	}
+	buttonWasClickedForMainTab = false;
+	}
+	}).data('kendoTabStrip');
+
+	var tsobjectsRelView =$("#appRelationViewsTabs-{MAIN_WINDOW_ID}").kendoTabStrip({
+	animation: { open: { duration: 0} },
+	select: onSelectRelTab,
+	activate: function(e) {
+	var previousPage;
+	globalHistory.length > 0 ? previousPage = globalHistory[globalHistory.length-1] : previousPage = undefined;
+	currentPage = {
+	windowId: {MAIN_WINDOW_ID},
+	itemId: {MAIN_ITEM_ID},
+	mainView: $("#appMainViewsTabs-{MAIN_WINDOW_ID}").get(0).id,
+	mainTab: $("#appMainViewsTabs-{MAIN_WINDOW_ID}").find(".k-content.k-state-active").length == 0 ?
+	($("#appMainViewsTabs-{MAIN_WINDOW_ID}").find(".k-content").get(0) == undefined ? undefined : 
+	$("#appMainViewsTabs-{MAIN_WINDOW_ID}").find(".k-content").get(0).id) :
+	$("#appMainViewsTabs-{MAIN_WINDOW_ID}").find(".k-content.k-state-active").get(0).id,
+	relView: e.item.offsetParent.id,
+	relTab: e.item.getAttribute('aria-controls')
+	};
+	if(!buttonWasClickedForRelTab){
+	if(!checkTypeOfPreviousPage(currentPage, previousPage)){
+	addToHistory(currentPage);
+	}
+	}
+	buttonWasClickedForRelTab = false;
+	}
+	}).data("kendoTabStrip");
+	<!— BEGIN: viewtab —>
+	tsobjectsMainView.append(
+	[{
+	text: "<span class=\"k-icon k-icon-24 k-i-folder\"></span>" + "{VIEW_TITLE}",
+	encoded: false,
+	contentUrl:
+
+	"./app/view.php?forwindowid={MAIN_WINDOW_ID}&viewid={MAIN_VIEW_ID}&mainview=true&autobind={AUTO_BIND}
+	&itemobjectid={MAIN_OBJECT_ID}&itemid={MAIN_ITEM_ID}&viewrelations={REL_RELATIONS}&addtorelateddatasource=true&{ADD_URL_PARAMS}"
+	}]
+	);
+	<!— END: viewtab —>
+
+	if(buttonWasClickedForMainTab){
+	tsobjectsMainView.select('li[aria-controls='+globalHistory[globalHistory.length-historyIndex].mainTab+']');
+	}else{
+	tsobjectsMainView.select(0);
+	}
+
+	<!— BEGIN: viewtabrel —>
+	tsobjectsRelView.append(
+	[{
+	text: "<span class=\"k-icon k-icon-24 k-i-folder\"></span>" + "{VIEW_TITLE}",
+	encoded: false,
+	contentUrl:"./app/view.php?forwindowid={MAIN_WINDOW_ID}&viewid={REL_VIEW_ID}&mainview=false&autobind={AUTO_BIND}
+	&itemobjectid={MAIN_OBJECT_ID}&itemid={MAIN_ITEM_ID}&viewrelations={REL_RELATIONS}&addtorelateddatasource=true"
+	}]
+	);
+	<!— END: viewtabrel —>
+
+	if(buttonWasClickedForRelTab && globalHistory[globalHistory.length-historyIndex].relTab != undefined){
+	tsobjectsRelView.select('li[aria-controls='+globalHistory[globalHistory.length-historyIndex].relTab+']');
+	}else{
+	tsobjectsRelView.select(0);
+	}
+
+	<!— BEGIN: hidesplitterrel —>
+	splitter.remove(".k-pane:last");
+	<!— END: hidesplitterrel —>
+
+	});</pre>
+		</div>
+		<div>
+			<p class="cv-header">EXPERIENCE</p>
+			<ul>
+				<li>Student Intern at Epam Systems - from 10.2018 until 05.2019 at training 'Java Web Development'</li>
+				<li>Junior PLM Consultant at Technia Slovakia s.r.o - from 01.02.2020 until now</li>
+			</ul>
+			<p>Examples of projects:</p>
+			<ul>
+				<li><a href="https://github.com/nepp503/FinalTask">Final Task of Epam Training</a></li>
+				<li><a href="https://goman.sk">GOMAN</a>(unfortunatelly project is private on BitBucket)</li>
+			</ul>
+		</div>
+		<div>
+			<p class="cv-header">STUDY</p>
+			<p>Java Web Development training at Epam Systems</p>
+		</div>
+		<div>
+			<p class="cv-header">ENGLISH</p>
+			<p>I studied English at PostGraduating Academy in Minsk during my study at BNTU and graduated successfully as interpreter 
+			(English) in 2016.</p>
+		</div>
+	</div>
+  </body>
+  
+  <style>
+	p{
+		margin: 0;
+		font-size: 18px;
+	}
+	ul{
+		font-size: 18px;
+	}
+	pre{
+		background-color: #D3D3D3;
+		font-size: 12px;
+	}
+	div{
+	}
+	.center-block{
+		margin: auto;
+		width: 1024px;
+	}
+	.top-block{
+		background-color: yellow;
+		color: black;
+		margin-top: 0;
+		margin-bottom: 10px;
+		width: 100%;
+		display: table;
+	}
+	.top-image{
+		display: table-cell;
+		width: 30%;
+		background-image: url(av.jpg);
+		background-size: cover;
+		height: 180px;
+	}
+	.top-name{
+		vertical-align: middle;
+		display: table-cell;
+		padding-left: 20px;
+	}	
+	.top-name p{
+		font: 36px bold;
+	}
+	.cv-header{
+		margin-bottom: 10px;
+		background-color: black;
+		color: white;
+		display: inline-block;
+	}
+	.cv-sub-header{
+		background-color: grey;
+		color: white;
+	}
+	.cv-list{
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+		font-size: 18px;
+	}
+  </style>
+</html>
