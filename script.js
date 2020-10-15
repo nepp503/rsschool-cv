@@ -60,6 +60,9 @@ class Calculator {
         break
       case '√':
         computation = Math.sqrt(prev) ;
+        if(isNaN(computation)){
+          computation = 'Error';
+        }
         break
       case '^':
         computation = Math.pow(prev, current);
@@ -74,35 +77,38 @@ class Calculator {
   }
 
   getDisplayNumber(number) {
-    const stringNumber = number.toString()
-    const integerDigits = parseFloat(stringNumber.split('.')[0])
-    const decimalDigits = stringNumber.split('.')[1]
-    let integerDisplay
+    const stringNumber = number.toString();
+    if(stringNumber === 'Error'){
+      return stringNumber;
+    }
+    const integerDigits = parseFloat(stringNumber.split('.')[0]);
+    const decimalDigits = stringNumber.split('.')[1];
+    let integerDisplay;
     if (isNaN(integerDigits)) {
-      integerDisplay = ''
+      integerDisplay = '';
     } else {
-      integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
+      integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 });
     }
     if (decimalDigits != null) {
-      return `${integerDisplay}.${decimalDigits}`
+      return `${integerDisplay}.${decimalDigits}`;
     } else {
-      return integerDisplay
+      return integerDisplay;
     }
   }
 
   updateDisplay() {
     this.currentOperandTextElement.innerText =
-      this.getDisplayNumber(this.currentOperand)
+      this.getDisplayNumber(this.currentOperand);
     if (this.operation != null) {
       this.previousOperandTextElement.innerText =
-        `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+        `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
     } else {
-      this.previousOperandTextElement.innerText = ''
+      this.previousOperandTextElement.innerText = '';
     }
   }
 }
 
-
+const allbuttons = document.querySelectorAll('button');
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
@@ -112,7 +118,16 @@ const allClearButton = document.querySelector('[data-all-clear]');
 const previousOperandTextElement = document.querySelector('[data-previous-operand]');
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
 
-const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
+allbuttons.forEach(button => {
+  button.addEventListener("click", () => {
+    if(calculator.currentOperand === 'Error'){
+      calculator.clear();
+      calculator.updateDisplay();
+    }
+  })
+})
 
 numberButtons.forEach(button => {
   button.addEventListener("click", () => {
