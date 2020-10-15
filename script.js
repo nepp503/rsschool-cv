@@ -22,6 +22,14 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
+  changeSign(){
+    if(this.currentOperand.toString().includes('-')){
+      this.currentOperand = this.currentOperand.toString().replace('-', '');
+    } else {
+      this.currentOperand = '-' + this.currentOperand.toString();
+    }
+  }
+
   chooseOperation(operation) {
     if (this.currentOperand === '') return;
     if (this.currentOperand !== '' && this.previousOperand !== '') {
@@ -36,22 +44,22 @@ class Calculator {
     let computation;
     const prev = parseFloat(this.previousOperand);
     const current = parseFloat(this.currentOperand);
-    if (isNaN(prev) || isNaN(current)) return;
+    if ((isNaN(prev) || isNaN(current)) && this.operation !== '√') return;
     switch (this.operation) {
       case '+':
-        computation = prev + current;
+        computation = (prev * 10 + current * 10) / 10 ;
         break
       case '-':
-        computation = prev - current;
+        computation = (prev * 10 - current * 10) / 10 ;
         break
       case '*':
-        computation = prev * current;
+        computation =  prev * current * 10 / 10;
         break
       case '÷':
-        computation = prev / current;
+        computation = ((prev / current)*10)/10 ;
         break
       case '√':
-        computation = Math.sqrt(prev);
+        computation = Math.sqrt(prev) ;
         break
       case '^':
         computation = Math.pow(prev, current);
@@ -99,6 +107,7 @@ const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
+const signButton = document.querySelector('[data-sign]');
 const allClearButton = document.querySelector('[data-all-clear]');
 const previousOperandTextElement = document.querySelector('[data-previous-operand]');
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
@@ -142,4 +151,11 @@ allClearButton.addEventListener('click', button => {
 deleteButton.addEventListener('click', button => {
   calculator.delete();
   calculator.updateDisplay();
+})
+
+signButton.addEventListener('click', button => {
+  if (calculator.currentOperand !== ''){
+    calculator.changeSign();
+    calculator.updateDisplay();
+  }
 })
