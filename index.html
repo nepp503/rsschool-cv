@@ -9,34 +9,44 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="calculator-grid">
-    <div class="output">
-      <div data-previous-operand class="previous-operand"></div>
-      <div data-current-operand class="current-operand"></div>
+  <div class="wrapper">
+    <div class="calculator-grid">
+      <div class="output">
+        <div data-previous-operand class="previous-operand"></div>
+        <div data-current-operand class="current-operand"></div>
+      </div>
+      <button data-all-clear>AC</button>
+      <button data-delete>DEL</button>
+      <div class="degree-grid">
+        <button data-operation>&#8730;</button>
+        <button data-operation>^</button>
+      </div>
+      <button data-operation>÷</button>
+      <button data-number>1</button>
+      <button data-number>2</button>
+      <button data-number>3</button>
+      <button data-operation>*</button>
+      <button data-number>4</button>
+      <button data-number>5</button>
+      <button data-number>6</button>
+      <button data-operation>+</button>
+      <button data-number>7</button>
+      <button data-number>8</button>
+      <button data-number>9</button>
+      <button data-operation>-</button>
+      <button data-number>.</button>
+      <button data-number>0</button>
+      <button data-sign>+/-</button>
+      <button data-equals>=</button>
     </div>
-    <button data-all-clear>AC</button>
-    <button data-delete>DEL</button>
-    <div class="degree-grid">
-      <button data-operation>&#8730;</button>
-      <button data-operation>^</button>
+    <div class="explanation">
+      <ul>
+        <li>Чтобы извлечь корень, нужно сначала набрать число, а затем нажать кнопку извлечения корня</li>
+        <li>Чтобы возвести число в степень, нужно набрать число, нажать кнопку степени "^", затем набрать саму степень и нажать равно</li>
+        <li>Чтобы изменить знак числа, нужно набрать это число, затем нажать кнопку "+/-"</li>
+        <li>Если извлечь квадратный корень из числа, на дисплее появится 'Error', которая сбрасывается нажатием любой кнопки</li>
+      </ul>
     </div>
-    <button data-operation>÷</button>
-    <button data-number>1</button>
-    <button data-number>2</button>
-    <button data-number>3</button>
-    <button data-operation>*</button>
-    <button data-number>4</button>
-    <button data-number>5</button>
-    <button data-number>6</button>
-    <button data-operation>+</button>
-    <button data-number>7</button>
-    <button data-number>8</button>
-    <button data-number>9</button>
-    <button data-operation>-</button>
-    <button data-number>.</button>
-    <button data-number>0</button>
-    <button data-sign>+/-</button>
-    <button data-equals>=</button>
   </div>
 </body>
 </html>
